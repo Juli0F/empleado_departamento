@@ -17,5 +17,5 @@ endpoints de las querys solicitadas y se van mostrando al momento de seleccionar
 tipo de reporte(query)
 
 ### Querys
- Se adjunta en la raiz del proyecto un archivo sql, en la cual van
+ Se adjunta en la raiz del proyecto un archivo sql, en el cual van
  las 15 querys solicitadas
