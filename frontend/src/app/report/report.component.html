@@ -1,0 +1,29 @@
+<div class="report-container">
+  <!-- Select para elegir el tipo de reporte -->
+  <div class="form-group">
+    <label for="reportType">Tipo de Reporte</label>
+    <select
+      class="form-control"
+      id="reportType"
+      [(ngModel)]="selectedReportType"
+      (change)="loadReportData()"
+    >
+      <option *ngFor="let report of reportTypes" [ngValue]="report.id">
+        {{ report.name }}
+      </option>
+    </select>
+  </div>
+
+  <table *ngIf="reportData && reportData.length" class="table">
+    <thead>
+      <tr>
+        <th *ngFor="let header of reportHeaders"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of reportData">
+        <td *ngFor="let header of reportHeaders">{{ row[header] }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

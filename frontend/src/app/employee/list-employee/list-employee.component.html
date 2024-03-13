@@ -1,0 +1,43 @@
+<div *ngIf="employeeEditing" class="container my-4">
+  <h3>Editando Empleado: {{ employeeEditing.name }}</h3>
+  <form>
+    <div class="form-group">
+      <label for="name">Nombre:</label>
+      <input type="text" id="name" class="form-control" [(ngModel)]="employeeEditing.name" name="employeeName">
+    </div>
+    <div class="form-group">
+      <label for="lastName">Apellido:</label>
+      <input type="text" id="lastName" class="form-control" [(ngModel)]="employeeEditing.lastName" name="employeeLastName">
+    </div>
+    <div class="form-group">
+      <button type="button" class="btn btn-success" (click)="guardarCambios()">Guardar Cambios</button>
+      <button type="button" class="btn btn-secondary" (click)="cancelarEdicion()">Cancelar</button>
+    </div>
+  </form>
+</div>
+
+<div class="container mt-3">
+  <table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th>DNI</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Departamento</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employee of employees">
+        <td>{{ employee.dni }}</td>
+        <td>{{ employee.name }}</td>
+        <td>{{ employee.lastName }}</td>
+        <td>{{ employee.departament.name }}</td>
+        <td>
+          <button type="button" class="btn btn-danger btn-sm" (click)="onDelete(employee.dni)">Eliminar</button>
+          <button type="button" class="btn btn-primary btn-sm" (click)="onEdit(employee)">Modificar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

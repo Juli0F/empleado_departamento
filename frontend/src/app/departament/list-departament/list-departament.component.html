@@ -1,0 +1,39 @@
+<div *ngIf="departamentoEditando" class="container mt-4">
+  <h3>Editando Departamento: {{ departamentoEditando.name }}</h3>
+
+    <div class="form-group">
+      <label for="name">Nombre:</label>
+      <input type="text" id="name" class="form-control" [(ngModel)]="departamentoEditando.name">
+    </div>
+    <div class="form-group">
+      <label for="budget">Presupuesto:</label>
+      <input type="number" id="budget" class="form-control" [(ngModel)]="departamentoEditando.budget">
+    </div>
+    <button type="button" class="btn btn-success" (click)="guardarCambios()">Guardar Cambios</button>
+    <button type="button" class="btn btn-secondary" (click)="cancelarEdicion()">Cancelar</button>
+</div>
+
+<div class="container mt-4">
+  <table class="table table-bordered table-hover">
+    <thead class="thead-light">
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Presupuesto</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let departamento of departamentos">
+        <td>{{ departamento.id }}</td>
+        <td>{{ departamento.name }}</td>
+        <td>{{ departamento.budget }}</td>
+        <td>
+          <button type="button" class="btn btn-danger btn-sm" (click)="onDelete(departamento.id)">Eliminar</button>
+          <button type="button" class="btn btn-primary btn-sm" (click)="onEdit(departamento)">Modificar</button>
+
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
